@@ -1,12 +1,21 @@
-<nav class="navbar bg-dark">
+<nav class="navbar nav-pills" style="background-color: #40417d">
   <div class="container-fluid">
-    <a routerLink="/" class="navbar-brand text-white"
-      ><strong>Moon Bank</strong></a
+    <a routerLink="/" class="navbar-brand text-white" style="font-size: 24px">
+      <i class="bi bi-moon-stars me-1 ms-2"> </i><strong>Moon Bank</strong></a
     >
-    <div class="navbar-nav d-flex flex-row me-auto">
+
+    <!-- <div class="nav">
       <a routerLink="" class="text-white nav-link ms-5">About</a>
       <a routerLink="" class="text-white nav-link ms-3">Career</a>
-    </div>
-    <a routerLink="/login" class="text-white nav-link me-3">Login</a>
+    </div> -->
+
+    <ng-template #popContent><app-login></app-login></ng-template>
+    <button
+      routerLink="/login"
+      class="text-secondary nav-link me-5 bg-light p-2"
+      [ngbPopover]="popContent"
+      popoverClass="loginPopover"
+      ><b>Login</b></button
+    >
   </div>
 </nav>

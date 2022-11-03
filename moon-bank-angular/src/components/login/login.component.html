@@ -1,0 +1,36 @@
+<div class="card border" style="width: 20rem">
+  <div
+    class="card-title text-center bg text-white py-2 rounded-top"
+    style="background-color: #40417d"
+  >
+    <h5>Login</h5>
+  </div>
+  <form class="px-4 pt-1 pb-3">
+    <div class="form-group">
+      <label for="username" class="form-label">Username: </label>
+      <input type="text" class="form-control p-1 is-invalid" />
+      <div class="text-danger">
+        <small> Please choose a username.</small>
+      </div>
+    </div>
+    <label for="password" class="form-label mt-1">Password: </label>
+    <input type="password" class="form-control p-1" />
+    <div class="text-center py-1 px-3">
+      <button type="submit" class="btn btn-light border rounded mt-2">
+        Login
+      </button>
+      <button
+        type="button"
+        class="btn btn-light border rounded mt-2 ms-2"
+        style="background-color: #dff2f5"
+      >
+        Get Started
+      </button>
+    </div>
+  </form>
+  <div class="card-footer text-bg-light">
+    <a [routerLink]="" class="link-secondary" style="cursor: pointer"
+      >Forgot password?</a
+    >
+  </div>
+</div>
