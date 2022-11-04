@@ -4,3 +4,39 @@
     padding: 0;
 }
 
+span { 
+    color: #808080;
+    cursor: pointer;
+}
+
+span:link {
+    text-decoration: none;
+}
+
+span:visited {
+    color: #808080;
+}
+
+span:hover {
+    color: cornflowerblue;
+}
+
+span:active {
+    text-decoration: none;
+}
+
+.bi-twitter:hover {
+    color: cornflowerblue !important;
+}
+
+.bi-facebook:hover {
+    color: cornflowerblue !important;
+}
+
+.bi-linkedin:hover {
+    color: cornflowerblue !important;
+}
+
+.bi-youtube:hover {
+    color: cornflowerblue !important;
+}

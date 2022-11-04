@@ -12,4 +12,8 @@ export class PublicAnnouncementComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  publicAnnounceShowMore() { 
+    console.log("show more")
+  }
+
 }

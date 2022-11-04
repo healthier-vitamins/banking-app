@@ -28,4 +28,8 @@ export class PageFooterComponent implements OnInit {
     console.log('youtube link');
   }
 
+  searchPostal() { 
+    console.log("search postal")
+  }
+
 }
