@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -13,6 +14,9 @@ import { PublicAnnouncementComponent } from './main-page/components/public-annou
 import { HomepageComponent } from './main-page/pages/homepage/homepage.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { UserComponent } from './user-page/user/user.component';
+import { AdminDashboardComponent } from './admin-page/pages/admin-dashboard/admin-dashboard.component';
+import { UserDashboardComponent } from './user-page/pages/user-dashboard/user-dashboard.component';
+
 
 @NgModule({
   declarations: [
@@ -24,7 +28,10 @@ import { UserComponent } from './user-page/user/user.component';
     CarouselPicturesComponent,
     PageFooterComponent,
     UserComponent,
-    AdminComponent
+    AdminComponent,
+    AdminDashboardComponent,
+    UserDashboardComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -32,6 +39,7 @@ import { UserComponent } from './user-page/user/user.component';
     FormsModule,
     ReactiveFormsModule,
     NgbModule,
+    HttpClientModule
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]

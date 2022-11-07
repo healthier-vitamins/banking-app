@@ -10,6 +10,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 			.loginPopover {
         margin-right: 10px !important;
         max-width: fit-content !important;
+        padding: 11px !important;
 			}
 			.loginPopover .arrow::after {
 				
