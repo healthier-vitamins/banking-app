@@ -14,8 +14,6 @@ import { PublicAnnouncementComponent } from './main-page/components/public-annou
 import { HomepageComponent } from './main-page/pages/homepage/homepage.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { UserComponent } from './user-page/user/user.component';
-import { AdminDashboardComponent } from './admin-page/pages/admin-dashboard/admin-dashboard.component';
-import { UserDashboardComponent } from './user-page/pages/user-dashboard/user-dashboard.component';
 
 
 @NgModule({
@@ -29,8 +27,6 @@ import { UserDashboardComponent } from './user-page/pages/user-dashboard/user-da
     PageFooterComponent,
     UserComponent,
     AdminComponent,
-    AdminDashboardComponent,
-    UserDashboardComponent,
 
   ],
   imports: [
