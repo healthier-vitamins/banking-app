@@ -1,24 +1,30 @@
-<nav class="navbar nav-pills" style="background-color: #40417d">
-  <div class="container-fluid">
-    <a routerLink="/" class="navbar-brand text-white" style="font-size: 24px">
-      <i class="bi bi-moon-stars me-1 ms-2"> </i><strong>Moon Bank</strong></a
-    >
+<nav class="d-flex align-items-center" style="background-color: #40417d">
+  <!-- <div class="container-fluid"> -->
+  <a routerLink="/" class="navbar-brand text-white" style="font-size: 24px">
+    <i class="bi bi-moon-stars ms-4" style="margin-right: 5px"> </i
+    ><strong>Moon Bank</strong></a
+  >
 
-    <!-- <div class="nav">
+  <!-- <div class="nav">
       <a routerLink="" class="text-white nav-link ms-5">About</a>
       <a routerLink="" class="text-white nav-link ms-3">Career</a>
     </div> -->
 
-    <ng-template #popContent><app-login></app-login></ng-template>
-    <button
-      type="button"
-      class="btn btn-light me-2"
-      style="color: #4d4d4d"
+  <ng-template #popContent><app-login></app-login></ng-template>
+  <div id="login-btn-container" class="ms-auto me-5">
+    <div
+      id="login-btn"
+      class="py-3 px-2"
+      style="color: #4d4d4d; background-color: #f2f2f2"
       [autoClose]="'outside'"
       [ngbPopover]="popContent"
       popoverClass="loginPopover"
     >
-      <b>Login</b>
-    </button>
+      <div class="d-flex">
+        <h6><i class="bi bi-lock me-1"></i></h6>
+        <b class="pe-1">Login</b>
+      </div>
+    </div>
   </div>
+  <!-- </div> -->
 </nav>

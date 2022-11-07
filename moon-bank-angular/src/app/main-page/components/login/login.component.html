@@ -10,11 +10,15 @@
       <label for="username" class="form-label">Username: </label>
       <input
         type="text"
-        class="form-control p-1 is-invalid"
+        class="form-control p-1"
         formControlName="username"
+        [ngClass]="isInvalid('username')"
       />
-      <div class="text-danger">
-        <small> Please choose a username.</small>
+      <div
+        *ngIf="isSubmitted && username!.hasError('required')"
+        class="text-danger"
+      >
+        <small> Username cannot be left blank.</small>
       </div>
     </div>
     <label for="password" class="form-label mt-1">Password: </label>
@@ -22,7 +26,14 @@
       type="password"
       class="form-control p-1"
       formControlName="password"
+      [ngClass]="isInvalid('password')"
     />
+    <div
+      *ngIf="isSubmitted && password!.hasError('required')"
+      class="text-danger"
+    >
+      <small> Password cannot be left blank.</small>
+    </div>
     <div class="text-center py-1 px-3">
       <button type="submit" class="btn btn-light border rounded mt-2">
         Login

@@ -14,6 +14,7 @@ import { PublicAnnouncementComponent } from './main-page/components/public-annou
 import { HomepageComponent } from './main-page/pages/homepage/homepage.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { UserComponent } from './user-page/user/user.component';
+import { ForbiddenPageComponent } from './forbidden-page/forbidden-page.component';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { UserComponent } from './user-page/user/user.component';
     PageFooterComponent,
     UserComponent,
     AdminComponent,
+    ForbiddenPageComponent,
 
   ],
   imports: [
