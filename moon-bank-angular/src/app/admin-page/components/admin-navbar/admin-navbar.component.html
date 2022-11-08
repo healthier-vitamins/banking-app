@@ -1,0 +1,45 @@
+<ng-template #content let-offcanvas>
+  <div class="offcanvas-header">
+    <h4 class="offcanvas-title" id="offcanvas-basic-title">Dashboard</h4>
+
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="offcanvas.dismiss('Cross click')"
+    ></button>
+  </div>
+  <div class="offcanvas-body">
+    <div class="d-flex flex-column h-100" >
+      <div class="">
+        <h5>Customer</h5>
+        <p routerLink="/create-customer" class="mb-0"><span>Create Customer</span></p>
+        <p routerLink="/all-customer" class=""><span>Show All Customers</span></p>
+      </div>
+      <div class="mt-auto ms-auto me-4">
+        <h3>
+          <i
+            id="logoutBtn"
+            class="bi bi-box-arrow-right text-secondary"
+            style="cursor: pointer"
+            (click)="logout()"
+          ></i>
+        </h3>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<nav class="d-flex align-items-center py-2" style="background-color: #40417d">
+  <div
+    class="d-flex mt-1 align-items-center ms-3"
+    style="cursor: pointer"
+    (click)="open(content)"
+  >
+    <h3><i class="text-white bi bi-list"></i></h3>
+  </div>
+  <div class="ms-auto d-flex align-items-center mt-1" style="cursor: pointer">
+    <h3><i class="px-2 bi bi-person-circle text-light"></i></h3>
+    <h6 class="text-white me-3">username</h6>
+  </div>
+</nav>
