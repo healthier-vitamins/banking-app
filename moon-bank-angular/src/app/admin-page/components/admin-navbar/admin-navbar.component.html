@@ -1,6 +1,12 @@
 <ng-template #content let-offcanvas>
   <div class="offcanvas-header">
-    <h4 class="offcanvas-title" id="offcanvas-basic-title">Dashboard</h4>
+    <h5
+      class="offcanvas-title"
+      id="offcanvas-basic-title"
+      style="font-size: 23px"
+    >
+      Dashboard
+    </h5>
 
     <button
       type="button"
@@ -10,21 +16,25 @@
     ></button>
   </div>
   <div class="offcanvas-body">
-    <div class="d-flex flex-column h-100" >
-      <div class="">
-        <h5>Customer</h5>
-        <p routerLink="/create-customer" class="mb-0"><span>Create Customer</span></p>
-        <p routerLink="/all-customer" class=""><span>Show All Customers</span></p>
+    <div class="d-flex flex-column h-100">
+      <div id="customer-section">
+        <h6 style="font-size: 19px">Customer</h6>
+        <p routerLink="/create-customer" class="mb-0" style="font-size: 15px">
+          <span>Create Customer</span>
+        </p>
+        <p routerLink="/all-customer" style="font-size: 15px">
+          <span>Show All Customers</span>
+        </p>
       </div>
       <div class="mt-auto ms-auto me-4">
-        <h3>
+        <h4>
           <i
             id="logoutBtn"
             class="bi bi-box-arrow-right text-secondary"
             style="cursor: pointer"
             (click)="logout()"
           ></i>
-        </h3>
+        </h4>
       </div>
     </div>
   </div>
@@ -36,10 +46,12 @@
     style="cursor: pointer"
     (click)="open(content)"
   >
-    <h3><i class="text-white bi bi-list"></i></h3>
+    <h4 style="font-size: 25px"><i class="text-white bi bi-list"></i></h4>
   </div>
   <div class="ms-auto d-flex align-items-center mt-1" style="cursor: pointer">
     <h3><i class="px-2 bi bi-person-circle text-light"></i></h3>
-    <h6 class="text-white me-3">username</h6>
+    <h5 style="font-size: 19px" class="text-white me-3">
+      {{ firstAndLastName() }}
+    </h5>
   </div>
 </nav>

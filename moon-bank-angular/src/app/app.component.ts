@@ -5,15 +5,13 @@ import { AuthService } from './services/auth.service';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  
 })
 export class AppComponent {
   title = 'moon-bank';
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService) {}
 
   isNotLoggedIn() {
     return !this.authService.isLoggedIn();
   }
-
 }

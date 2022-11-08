@@ -1,0 +1,27 @@
+<div
+  class="d-flex flex-column border border-right h-100"
+  style="width: fit-content"
+>
+  <div class="m-3">
+    <app-clock></app-clock>
+  </div>
+  <div id="customer-section" class="mx-3">
+    <h6 style="font-size: 19px">Customer</h6>
+    <p routerLink="/admin/create-customer" class="mb-0" style="font-size: 15px">
+      <span>Create Customer</span>
+    </p>
+    <p routerLink="/admin/all-customer" style="font-size: 15px">
+      <span>Show All Customers</span>
+    </p>
+  </div>
+  <div class="mt-auto ms-auto me-4 mb-2">
+    <h4>
+      <i
+        id="logoutBtn"
+        class="bi bi-box-arrow-right text-secondary"
+        style="cursor: pointer"
+        (click)="logout()"
+      ></i>
+    </h4>
+  </div>
+</div>

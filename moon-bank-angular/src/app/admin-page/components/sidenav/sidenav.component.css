@@ -1,0 +1,15 @@
+span {
+    cursor: pointer;
+}
+
+span:visited {
+    text-decoration: none;
+}
+
+span:hover {
+    color: cornflowerblue;
+}
+
+#logoutBtn:hover {
+    color: cornflowerblue !important;
+}
