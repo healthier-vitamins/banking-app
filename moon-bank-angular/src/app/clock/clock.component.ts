@@ -1,12 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, NgZone, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-clock',
   templateUrl: './clock.component.html',
   styleUrls: ['./clock.component.css'],
+  // changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ClockComponent implements OnInit {
   currentTime = new Date().toLocaleTimeString();
+  // currentRxTime = new Date().toLocaleTimeString();
+  // intervalId: any;
+  // subscription?: Subscription;
+
+  // private _time$: Observable<string> = timer(0, 1000).pipe(
+  //   map((tick) => new Date().toLocaleTimeString()),
+  //   shareReplay(1)
+  // );
+
+  // get currentRxTime() {
+  //   return this._time$;
+  // }
+
   currentDate = new Date().toLocaleDateString();
   calculateTime = new Date().getHours();
 
@@ -21,7 +35,14 @@ export class ClockComponent implements OnInit {
   ];
   currentDay = new Date().getDay();
 
-  constructor() {}
+  constructor(private ngZone: NgZone) {}
+
+  // ngOnDestroy(): void {
+  //   clearInterval(this.intervalId);
+  //   if (this.subscription) {
+  //     this.subscription.unsubscribe();
+  //   }
+  // }
 
   ngOnInit(): void {
     this.getCurrentTime();
@@ -29,14 +50,32 @@ export class ClockComponent implements OnInit {
     this.calculatedTime();
   }
 
-  getCurrentTime() {
-    const interval = setInterval(() => {
-      this.currentTime = new Date().toLocaleTimeString();
-    }, 1000);
+  // getCurrentTime() {
+  //   this.intervalId = setInterval(() => {
+  //     this.currentTime = new Date().toLocaleTimeString();
+  //   }, 1000);
 
-    return () => {
-      clearInterval(interval);
-    };
+  //   this.subscription = timer(0, 1000)
+  //     .pipe(
+  //       map(() => new Date().toLocaleTimeString()),
+  //       share()
+  //     )
+  //     .subscribe((time) => {
+  //       this.currentRxTime = time;
+  //     });
+  // }
+
+  getCurrentTime() {
+    this.ngZone.runOutsideAngular(() => {
+      const interval = setInterval(() => {
+        this.ngZone.run(() => {
+          this.currentTime = new Date().toLocaleTimeString();
+        });
+      }, 1000);
+      return () => {
+        clearInterval(interval);
+      };
+    });
   }
 
   getCurrentDate() {

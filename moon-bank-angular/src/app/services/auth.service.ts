@@ -110,7 +110,6 @@ export class AuthService {
   }
 
   clearAllCookies() {
-    this.cookieService.deleteAll('/');
-    // this.cookieService.deleteAll('localhost');
+    this.cookieService.deleteAll('localhost');
   }
 }

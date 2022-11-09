@@ -10,8 +10,21 @@ import { BankAccountService } from 'src/app/services/bank-account.service';
   styleUrls: ['./show-all-customer.component.css'],
 })
 export class ShowAllCustomerComponent implements OnInit {
+  displayedColumns = [
+    // '#',
+    'Email',
+    // 'First Name',
+    // 'Last Name',
+    // 'Phone',
+    // 'City',
+    // 'Account Balance',
+    // 'Account Type',
+    // 'Date Created',
+    // '',
+  ];
   listOfBankAcc?: BankAccount[];
   customer?: Customer;
+  // dataSource = this.listOfBankAcc;
 
   constructor(private bankAccService: BankAccountService) {}
 
@@ -24,6 +37,7 @@ export class ShowAllCustomerComponent implements OnInit {
       next: (res: any) => {
         this.listOfBankAcc = res as BankAccount[];
         console.log(this.listOfBankAcc);
+        // this.dataSource = this.listOfBankAcc;
       },
       error: (err: HttpErrorResponse) => {
         if (err.status === 204) {
