@@ -22,6 +22,7 @@ import { PublicAnnouncementComponent } from './main-page/components/public-annou
 import { HomepageComponent } from './main-page/homepage/homepage.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { UserComponent } from './user-page/user/user.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { UserComponent } from './user-page/user/user.component';
     NgbModule,
     HttpClientModule,
     RouterModule,
+    BrowserAnimationsModule,
   ],
   providers: [CookieService, AuthInterceptorProvider],
   bootstrap: [AppComponent],

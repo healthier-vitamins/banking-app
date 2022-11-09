@@ -10,7 +10,7 @@ import { BankAccountService } from 'src/app/services/bank-account.service';
   styleUrls: ['./show-all-customer.component.css'],
 })
 export class ShowAllCustomerComponent implements OnInit {
-  bankAcc?: BankAccount[];
+  listOfBankAcc?: BankAccount[];
   customer?: Customer;
 
   constructor(private bankAccService: BankAccountService) {}
@@ -22,8 +22,8 @@ export class ShowAllCustomerComponent implements OnInit {
   getBankAccounts() {
     this.bankAccService.getAllBankAccount().subscribe({
       next: (res: any) => {
-        this.bankAcc = res as BankAccount[];
-        console.log(this.bankAcc);
+        this.listOfBankAcc = res as BankAccount[];
+        console.log(this.listOfBankAcc);
       },
       error: (err: HttpErrorResponse) => {
         if (err.status === 204) {

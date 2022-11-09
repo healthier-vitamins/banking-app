@@ -29,9 +29,14 @@ export class AuthInterceptor implements HttpInterceptor {
       catchError((err: HttpErrorResponse) => {
         if (err.status === 401) {
           alert('Please login');
+          this.authService.clearAllCookies();
           this.router.navigate(['/']);
         } else if (err.status === 403) {
           this.router.navigate(['/forbidden']);
+        } else if (err.status === 504) {
+          alert('Session has timed out, please login again');
+          this.authService.clearAllCookies();
+          this.router.navigate(['/']);
         }
         return throwError(() => new Error());
       })

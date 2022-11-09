@@ -1,4 +1,4 @@
-import { Component, NgModule, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -6,7 +6,6 @@ import { AuthService } from 'src/app/services/auth.service';
   templateUrl: './sidenav.component.html',
   styleUrls: ['./sidenav.component.css'],
 })
-
 export class SidenavComponent implements OnInit {
   constructor(private authService: AuthService) {}
 
@@ -14,5 +13,6 @@ export class SidenavComponent implements OnInit {
 
   logout() {
     this.authService.logout();
+    console.log('hello');
   }
 }

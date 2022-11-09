@@ -90,7 +90,7 @@ export class AuthService {
   }
 
   logout() {
-    this.cookieService.deleteAll('/');
+    this.clearAllCookies();
     this.router.navigate(['/']);
   }
 
@@ -107,5 +107,10 @@ export class AuthService {
 
   getToken() {
     return this.cookieService.get('token');
+  }
+
+  clearAllCookies() {
+    this.cookieService.deleteAll('/');
+    // this.cookieService.deleteAll('localhost');
   }
 }
