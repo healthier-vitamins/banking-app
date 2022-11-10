@@ -1,15 +1,14 @@
 <div class="d-flex flex-column border align-items-center rounded">
   <div class="container">
     <h5
-      class="py-2 ps-3
-       text-white rounded-top"
+      class="py-2 ps-3 text-white rounded-top"
       style="background-color: #40417d"
     >
       Public Announcements
     </h5>
   </div>
 
-  <div id="announcement">
+  <div id="announcement" class="w-100">
     <hr style="width: 100%" />
     <div class="container">
       <p class="py-1 ps-2" style="font-size: 15px; background-color: #f2f7ff">
@@ -24,7 +23,7 @@
       </p>
     </div>
   </div>
-  <div id="announcement">
+  <div id="announcement" class="w-100">
     <hr style="width: 100%" />
     <div class="container">
       <p class="py-1 ps-2" style="font-size: 15px; background-color: #f2f7ff">
@@ -39,7 +38,7 @@
       </p>
     </div>
   </div>
-  <div id="announcement">
+  <div id="announcement" class="w-100">
     <hr style="width: 100%" />
     <div class="container">
       <p class="py-1 ps-2" style="font-size: 15px; background-color: #f2f7ff">
@@ -55,9 +54,17 @@
       </p>
     </div>
   </div>
-  <div class="container " style="cursor: pointer;" (click)="publicAnnounceShowMore()">
+  
+  <div
+    class="container"
+    style="cursor: pointer"
+    (click)="publicAnnounceShowMore()"
+  >
     <hr style="width: 100%" />
-    <p class="text-center text-secondary rounded-bottom" style="font-size: 15px; background-color: #fafcff">
+    <p
+      class="text-center text-secondary rounded-bottom"
+      style="font-size: 15px; background-color: #fafcff"
+    >
       Show more
     </p>
   </div>
