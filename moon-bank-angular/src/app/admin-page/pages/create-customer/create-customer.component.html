@@ -1,0 +1,53 @@
+<div class="m-5 border rounded p-4">
+  <form class="row g-3" [formGroup]="customerForm" (ngSubmit)="onSubmit()">
+    <div class="col-md-6">
+      <label for="firstName" class="form-label">First Name</label>
+      <input type="text" class="form-control" formControlName="firstName" />
+    </div>
+    <div class="col-md-6">
+      <label for="lastName" class="form-label">Last Name</label>
+      <input type="text" class="form-control" formControlName="lastName" />
+    </div>
+    <div class="col-7">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" class="form-control" formControlName="email" />
+    </div>
+    <div class="col-5">
+      <label for="phone" class="form-label">Phone</label>
+      <input type="text" class="form-control" formControlName="phone" />
+    </div>
+    <div class="col-md-5">
+      <label for="city" class="form-label">City</label>
+      <input type="text" class="form-control" formControlName="city" />
+    </div>
+    <div class="col-md-3">
+      <label for="accType" class="form-label">Account Type</label>
+      <select class="form-select" formControlName="accType">
+        <option disabled>--Select Option--</option>
+        <option value="Savings" default>Savings</option>
+        <option value="Current">Current</option>
+        <option value="Overseas">Overseas</option>
+      </select>
+    </div>
+    <div class="col-md-4">
+      <label for="accBal" class="form-label">Account Balance</label>
+      <div class="input-group">
+        <span class="input-group-text">$</span>
+        <input type="text" class="form-control" formControlName="accBal" />
+      </div>
+    </div>
+
+    <div class="col-12 mt-4">
+      <button
+        type="submit"
+        class="btn text-white me-2"
+        style="background-color: #40417d"
+      >
+        Create
+      </button>
+      <button class="btn text-white" style="background-color: #a8a8a8">
+        Reset
+      </button>
+    </div>
+  </form>
+</div>

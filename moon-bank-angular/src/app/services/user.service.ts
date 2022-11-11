@@ -21,4 +21,8 @@ export class UserService {
       { headers: reqHeader }
     );
   }
+
+  getUser(username: string) {
+    return this.http.get(this.API_PATH + `/get-user/${username}`);
+  }
 }

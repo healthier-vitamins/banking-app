@@ -1,0 +1,15 @@
+.form-label,
+option {
+  margin-top: 0px;
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+
+.form-control,
+.form-select,
+.input-group-text {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+}

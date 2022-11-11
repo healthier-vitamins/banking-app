@@ -37,9 +37,8 @@ export class AuthInterceptor implements HttpInterceptor {
           alert('Session has timed out, please login again');
           this.authService.clearAllCookies();
           location.reload();
-          this.router.navigate(['/']);
         }
-        return throwError(() => new Error());
+        return throwError(() => err);
       })
     );
   }

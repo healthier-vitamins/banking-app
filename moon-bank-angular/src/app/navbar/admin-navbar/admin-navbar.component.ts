@@ -3,6 +3,7 @@ import {
   NgbOffcanvas,
   OffcanvasDismissReasons,
 } from '@ng-bootstrap/ng-bootstrap';
+import { CookieService } from 'ngx-cookie-service';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -12,11 +13,11 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class AdminNavbarComponent implements OnInit {
   closeResult = '';
-  // firstAndLastName = 'user tay';
 
   constructor(
     private offcanvasService: NgbOffcanvas,
-    private authService: AuthService
+    private authService: AuthService,
+    private cookieService: CookieService
   ) {}
 
   ngOnInit(): void {}
@@ -49,7 +50,7 @@ export class AdminNavbarComponent implements OnInit {
     this.offcanvasService.dismiss();
   }
 
-  firstAndLastName() {
-    return 'hello test';
+  getUsername() {
+    return `${this.cookieService.get('username')}`;
   }
 }

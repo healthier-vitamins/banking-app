@@ -21,8 +21,8 @@ export class ShowAllCustomerComponent implements OnInit {
     'accType',
     'dateCreated',
   ];
-  listOfBankAcc?: BankAccount[];
-  customer?: Customer;
+  listOfBankAcc?: BankAccount[]
+  customer: Customer = new Customer()
   // dataSource = this.listOfBankAcc;
 
   constructor(private bankAccService: BankAccountService) {}
@@ -38,7 +38,7 @@ export class ShowAllCustomerComponent implements OnInit {
         console.log(this.listOfBankAcc);
         // this.dataSource = this.listOfBankAcc;
       },
-      error: (err: HttpErrorResponse) => {
+      error: (err) => {
         if (err.status === 204) {
           alert('Database is empty');
         }

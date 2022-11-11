@@ -43,7 +43,7 @@ export class AuthService {
   // https://stackoverflow.com/questions/1197928/how-to-add-30-minutes-to-a-javascript-date-object
   getExpiredDate() {
     let oldDateObj = new Date();
-    let newDateObj = new Date(oldDateObj.getTime() + 30 * 60000);
+    let newDateObj = new Date(oldDateObj.getTime() + 120 * 60000);
     // console.log(oldDateObj)
     // console.log(newDateObj)
     // let test = new Date("2022-11-07 23:01:21:238")
@@ -110,6 +110,10 @@ export class AuthService {
   }
 
   clearAllCookies() {
-    this.cookieService.deleteAll('localhost');
+    // this.cookieService.deleteAll('localhost');
+    this.cookieService.delete('token');
+    this.cookieService.delete('refresh_token');
+    this.cookieService.delete('roles');
+    this.cookieService.delete('username');
   }
 }

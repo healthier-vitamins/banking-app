@@ -1,9 +1,11 @@
-import { Customer } from "./customer";
+import { Customer } from './customer';
 
-export interface BankAccount {
-    accId: number;
-    accType: string;
-    accBal: number;
-    accCreationDate: string;
-    customer: Customer;
+export class BankAccount {
+  constructor(
+    public accId?: number | null,
+    public accType?: string | null,
+    public accBal?: number | null,
+    public accCreationDate?: string | null,
+    public customer?: Customer | null
+  ) {}
 }
