@@ -2,38 +2,133 @@
   <form class="row g-3" [formGroup]="customerForm" (ngSubmit)="onSubmit()">
     <div class="col-md-6">
       <label for="firstName" class="form-label">First Name</label>
-      <input type="text" class="form-control" formControlName="firstName" />
+      <input
+        type="text"
+        class="form-control"
+        formControlName="firstName"
+        [ngClass]="isInvalid('firstName')"
+      />
+      <div id="errors">
+        <div
+          *ngIf="isSubmitted && firstName?.hasError('required')"
+          class="text-danger"
+        >
+          <small>First name cannot be left blank.</small>
+        </div>
+      </div>
     </div>
+
     <div class="col-md-6">
       <label for="lastName" class="form-label">Last Name</label>
-      <input type="text" class="form-control" formControlName="lastName" />
+      <input
+        type="text"
+        class="form-control"
+        formControlName="lastName"
+        [ngClass]="isInvalid('lastName')"
+      />
+      <div id="errors">
+        <div
+          *ngIf="isSubmitted && lastName?.hasError('required')"
+          class="text-danger"
+        >
+          <small>Last name cannot be left blank.</small>
+        </div>
+      </div>
     </div>
+
     <div class="col-7">
       <label for="email" class="form-label">Email</label>
-      <input type="email" class="form-control" formControlName="email" />
+      <input
+        type="email"
+        class="form-control"
+        formControlName="email"
+        [ngClass]="isInvalid('email')"
+      />
+      <div id="errors">
+        <div
+          *ngIf="isSubmitted && email?.hasError('required')"
+          class="text-danger"
+        >
+          <small>Email cannot be left blank.</small>
+        </div>
+      </div>
     </div>
+
     <div class="col-5">
       <label for="phone" class="form-label">Phone</label>
-      <input type="text" class="form-control" formControlName="phone" />
+      <input
+        type="text"
+        class="form-control"
+        formControlName="phone"
+        [ngClass]="isInvalid('phone')"
+      />
+      <div id="errors">
+        <div
+          *ngIf="isSubmitted && phone?.hasError('required')"
+          class="text-danger"
+        >
+          <small>Phone cannot be left blank.</small>
+        </div>
+      </div>
     </div>
     <div class="col-md-5">
       <label for="city" class="form-label">City</label>
-      <input type="text" class="form-control" formControlName="city" />
+      <input
+        type="text"
+        class="form-control"
+        formControlName="city"
+        [ngClass]="isInvalid('city')"
+      />
+      <div id="errors">
+        <div
+          *ngIf="isSubmitted && city?.hasError('required')"
+          class="text-danger"
+        >
+          <small>City cannot be left blank.</small>
+        </div>
+      </div>
     </div>
     <div class="col-md-3">
       <label for="accType" class="form-label">Account Type</label>
-      <select class="form-select" formControlName="accType">
+      <select
+        class="form-select"
+        formControlName="accType"
+        [ngClass]="isInvalid('accType')"
+      >
         <option disabled>--Select Option--</option>
         <option value="Savings" default>Savings</option>
         <option value="Current">Current</option>
         <option value="Overseas">Overseas</option>
       </select>
+      <div id="errors">
+        <div
+          *ngIf="
+            isSubmitted && accType?.hasError('defaultSelectOptionValidator')
+          "
+          class="text-danger"
+        >
+          <small>Please select an account type.</small>
+        </div>
+      </div>
     </div>
     <div class="col-md-4">
       <label for="accBal" class="form-label">Account Balance</label>
       <div class="input-group">
         <span class="input-group-text">$</span>
-        <input type="text" class="form-control" formControlName="accBal" />
+        <input
+          type="text"
+          class="form-control"
+          formControlName="accBal"
+          [ngClass]="isInvalid('accBal')"
+        />
+        <div id="errors">
+          <div
+            *ngIf="isSubmitted && accBal?.hasError('required')"
+            class="text-danger"
+          >
+            <small>Account balance cannot be left blank.</small>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -42,10 +137,15 @@
         type="submit"
         class="btn text-white me-2"
         style="background-color: #40417d"
+        [disabled]="customerForm.invalid && isSubmitted"
       >
         Create
       </button>
-      <button class="btn text-white" style="background-color: #a8a8a8">
+      <button
+        class="btn text-white"
+        style="background-color: #a8a8a8"
+        (click)="resetForm()"
+      >
         Reset
       </button>
     </div>

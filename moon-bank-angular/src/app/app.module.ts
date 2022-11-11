@@ -24,6 +24,7 @@ import { HomepageComponent } from './main-page/homepage/homepage.component';
 import { AdminNavbarComponent } from './navbar/admin-navbar/admin-navbar.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { UserComponent } from './user-page/user/user.component';
+import { CustomerFormComponent } from './admin-page/components/customer-form/customer-form.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { UserComponent } from './user-page/user/user.component';
     SidenavComponent,
     ShowAllCustomerComponent,
     CreateCustomerComponent,
+    CustomerFormComponent,
   ],
   imports: [
     BrowserModule,
