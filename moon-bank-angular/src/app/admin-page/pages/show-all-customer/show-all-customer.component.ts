@@ -11,16 +11,15 @@ import { BankAccountService } from 'src/app/services/bank-account.service';
 })
 export class ShowAllCustomerComponent implements OnInit {
   displayedColumns = [
-    // '#',
-    'Email',
-    // 'First Name',
-    // 'Last Name',
-    // 'Phone',
-    // 'City',
-    // 'Account Balance',
-    // 'Account Type',
-    // 'Date Created',
-    // '',
+    '#',
+    'email',
+    'firstName',
+    'lastName',
+    'phone',
+    'city',
+    'accBal',
+    'accType',
+    'dateCreated',
   ];
   listOfBankAcc?: BankAccount[];
   customer?: Customer;

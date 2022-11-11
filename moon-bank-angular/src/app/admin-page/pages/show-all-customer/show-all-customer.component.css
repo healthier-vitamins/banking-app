@@ -20,3 +20,26 @@ i:hover {
   margin: 0;
   padding: 0;
 }
+
+#header {
+  border: 1px solid #e6e6e6;
+  padding-left: 7px;
+  padding-right: 7px;
+  background-color: #40417d;
+  color: white;
+}
+
+#body {
+  border: 1px solid #e6e6e6;
+  padding-left: 7px;
+  padding-right: 7px;
+  border-radius: 10px;
+}
+
+#firstHeader {
+  border: 1px solid #e6e6e6;
+  align-items: center;
+  padding-right: 21px;
+  background-color: #40417d;
+  color: white;
+}

@@ -1,4 +1,4 @@
-<div *ngIf="!!listOfBankAcc" class="m-3 border px-4 py-5 rounded">
+<!-- <div *ngIf="!!listOfBankAcc" class="m-3 border px-4 py-5 rounded">
   <table class="table table-sm table-bordered table-striped table-hover border">
     <thead class="text-light text-center" style="background-color: #40417d">
       <tr>
@@ -32,21 +32,80 @@
       </tr>
     </tbody>
   </table>
-</div>
+</div> -->
 
-<table
-  *ngIf="!!listOfBankAcc"
-  mat-table
-  [dataSource]="listOfBankAcc"
-  class="mat-elevation-z8"
-  style="width: 100%"
->
-  <ng-container matColumnDef="Email">
-    <th mat-header-cell *matHeaderCellDef>Email</th>
-    <td mat-cell *matCellDef="let element">
-      {{ element.customer.custEmail }}
-    </td>
-  </ng-container>
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-</table>
+<div class="m-3 mt-5">
+  <table
+    *ngIf="!!listOfBankAcc"
+    mat-table
+    [dataSource]="listOfBankAcc"
+    class=""
+    style="width: 100%"
+  >
+    <ng-container matColumnDef="#">
+      <th
+        mat-header-cell
+        *matHeaderCellDef
+        class="text-center"
+        id="firstHeader"
+      >
+        #
+      </th>
+      <td mat-cell *matCellDef="let element" id="body">
+        <i class="bi bi-pencil-square text-secondary me-1"></i
+        ><i class="bi bi-trash-fill text-secondary"></i>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef id="header">Email</th>
+      <td mat-cell *matCellDef="let element" id="body">
+        {{ element.customer.custEmail }}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="firstName">
+      <th mat-header-cell *matHeaderCellDef id="header">First Name</th>
+      <td mat-cell *matCellDef="let element" id="body">
+        {{ element.customer.custFirstName }}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="lastName">
+      <th mat-header-cell *matHeaderCellDef id="header">Last Name</th>
+      <td mat-cell *matCellDef="let element" id="body">
+        {{ element.customer.custLastName }}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="phone">
+      <th mat-header-cell *matHeaderCellDef id="header">Phone</th>
+      <td mat-cell *matCellDef="let element" id="body">
+        {{ element.customer.custPhone }}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="city">
+      <th mat-header-cell *matHeaderCellDef id="header">City</th>
+      <td mat-cell *matCellDef="let element" id="body">
+        {{ element.customer.custCity }}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="accBal">
+      <th mat-header-cell *matHeaderCellDef id="header">Account Balance</th>
+      <td mat-cell *matCellDef="let element" id="body">
+        ${{ element.accBal }}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="accType">
+      <th mat-header-cell *matHeaderCellDef id="header">Account Type</th>
+      <td mat-cell *matCellDef="let element" id="body">
+        {{ element.accType }}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="dateCreated">
+      <th mat-header-cell *matHeaderCellDef id="header">Date Created</th>
+      <td mat-cell *matCellDef="let element" id="body">
+        {{ element.accCreationDate }}
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>
