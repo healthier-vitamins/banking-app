@@ -67,7 +67,10 @@ export class CreateCustomerComponent implements OnInit {
   isInvalid(controlName: string) {
     let formControl = this.customerForm.get(controlName);
     return {
-      'is-invalid': this.isSubmitted && (formControl?.hasError('required') || formControl?.hasError('defaultSelectOptionValidator')),
+      'is-invalid':
+        this.isSubmitted &&
+        (formControl?.hasError('required') ||
+          formControl?.hasError('defaultSelectOptionValidator')),
     };
   }
 
@@ -89,6 +92,7 @@ export class CreateCustomerComponent implements OnInit {
         next: (res) => {
           console.log(res);
           this.customerForm.reset();
+          this.accType!.setValue('--Select Option--');
           this.router.navigate(['admin/all-customer']);
         },
         error: (err: HttpErrorResponse) => {
@@ -101,6 +105,8 @@ export class CreateCustomerComponent implements OnInit {
   }
 
   resetForm() {
+    this.isSubmitted = false;
     this.customerForm.reset();
+    this.accType!.setValue('--Select Option--');
   }
 }
