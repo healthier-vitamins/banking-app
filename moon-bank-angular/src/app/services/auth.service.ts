@@ -19,12 +19,28 @@ export class AuthService {
     return this.userService.login(loginForm).subscribe({
       next: (res: any) => {
         const expiry = this.getExpiredDate();
-        this.cookieService.set('token', res.access_token, { expires: expiry });
-        this.cookieService.set('roles', res.roles, { expires: expiry });
-        this.cookieService.set('refresh_token', res.refresh_token, {
-          expires: expiry,
-        });
-        this.cookieService.set('username', res.username, { expires: expiry });
+        this.cookieService.set(
+          'token',
+          res.access_token,
+          expiry,
+          '/',
+          'localhost'
+        );
+        this.cookieService.set('roles', res.roles, expiry, '/', 'localhost');
+        this.cookieService.set(
+          'refresh_token',
+          res.refresh_token,
+          expiry,
+          '/',
+          'localhost'
+        );
+        this.cookieService.set(
+          'username',
+          res.username,
+          expiry,
+          '/',
+          'localhost'
+        );
         if (this.getRoles()!.includes('ROLE_ADMIN')) {
           this.router.navigate(['/admin']);
         } else {
@@ -110,10 +126,29 @@ export class AuthService {
   }
 
   clearAllCookies() {
-    // this.cookieService.deleteAll('localhost');
-    this.cookieService.delete('token');
-    this.cookieService.delete('refresh_token');
-    this.cookieService.delete('roles');
-    this.cookieService.delete('username');
+    // this.cookieService.set(
+    //   'username',
+    //   '',
+    //   new Date('Thu, 01 Jan 1970 00:00:01 GMT'),
+    //   '/'
+    // );
+    // this.cookieService.set(
+    //   'token',
+    //   '',
+    //   new Date('Thu, 01 Jan 1970 00:00:01 GMT'),
+    //   '/'
+    // );
+    // this.cookieService.set(
+    //   'refresh_token',
+    //   '',
+    //   new Date('Thu, 01 Jan 1970 00:00:01 GMT')
+    // );
+    // this.cookieService.set(
+    //   'roles',
+    //   '',
+    //   new Date('Thu, 01 Jan 1970 00:00:01 GMT'),
+    //   '/'
+    // );
+    this.cookieService.deleteAll('/', 'localhost');
   }
 }

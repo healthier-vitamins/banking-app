@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { BankAccount } from 'src/app/models/bank-account';
 import { Customer } from 'src/app/models/customer';
 import { BankAccountService } from 'src/app/services/bank-account.service';
-import { defaultSelectOptionValidator } from '../../../validators/defaultSelectOptionValidator';
+import { defaultSelectOptionValidator } from '../../components/customer-form/validators/defaultSelectOptionValidator';
 
 @Component({
   selector: 'app-create-customer',
