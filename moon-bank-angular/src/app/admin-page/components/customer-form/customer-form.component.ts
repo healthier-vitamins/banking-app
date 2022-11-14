@@ -2,27 +2,29 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { defaultSelectOptionValidator } from 'src/app/admin-page/components/customer-form/validators/defaultSelectOptionValidator';
 import { BankAccount } from 'src/app/models/bank-account';
 import { Customer } from 'src/app/models/customer';
 import { BankAccountService } from 'src/app/services/bank-account.service';
-import { defaultSelectOptionValidator } from 'src/app/admin-page/components/customer-form/validators/defaultSelectOptionValidator';
 
 @Component({
   selector: 'app-customer-form',
   templateUrl: './customer-form.component.html',
-  styleUrls: ['./customer-form.component.css']
+  styleUrls: ['./customer-form.component.css'],
 })
 export class CustomerFormComponent implements OnInit {
-
   bankAcc?: BankAccount = new BankAccount();
   customer?: Customer = new Customer();
 
   isSubmitted: boolean = false;
 
-  constructor(private formBuilder: FormBuilder, private bankAccService: BankAccountService, private router: Router) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private bankAccService: BankAccountService,
+    private router: Router
+  ) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   customerForm = this.formBuilder.group({
     firstName: ['', Validators.required],
@@ -107,5 +109,4 @@ export class CustomerFormComponent implements OnInit {
     this.customerForm.reset();
     this.accType!.setValue('--Select Option--');
   }
-
 }
