@@ -1,8 +1,10 @@
-import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
 import { BankAccount } from 'src/app/models/bank-account';
 import { Customer } from 'src/app/models/customer';
 import { BankAccountService } from 'src/app/services/bank-account.service';
+import { EditModalComponent } from '../../components/edit-modal/edit-modal.component';
 
 @Component({
   selector: 'app-show-all-customer',
@@ -21,11 +23,14 @@ export class ShowAllCustomerComponent implements OnInit {
     'accType',
     'dateCreated',
   ];
-  listOfBankAcc?: BankAccount[]
-  customer: Customer = new Customer()
+  listOfBankAcc?: BankAccount[];
+  customer: Customer = new Customer();
   // dataSource = this.listOfBankAcc;
 
-  constructor(private bankAccService: BankAccountService) {}
+  constructor(
+    private bankAccService: BankAccountService,
+    private modalService: NgbModal
+  ) {}
 
   ngOnInit(): void {
     this.getBankAccounts();
@@ -44,5 +49,10 @@ export class ShowAllCustomerComponent implements OnInit {
         }
       },
     });
+  }
+
+  edit(element: object) {
+    const modalRef = this.modalService.open(EditModalComponent, { size: 'xl' });
+    modalRef.componentInstance.sentInBankAcc = element;
   }
 }

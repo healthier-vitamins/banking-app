@@ -1,6 +1,7 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTableModule } from '@angular/material/table';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -8,6 +9,7 @@ import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CookieService } from 'ngx-cookie-service';
 import { AdminComponent } from './admin-page/admin/admin.component';
+import { CustomerFormComponent } from './admin-page/components/customer-form/customer-form.component';
 import { SidenavComponent } from './admin-page/components/sidenav/sidenav.component';
 import { CreateCustomerComponent } from './admin-page/pages/create-customer/create-customer.component';
 import { ShowAllCustomerComponent } from './admin-page/pages/show-all-customer/show-all-customer.component';
@@ -24,7 +26,7 @@ import { HomepageComponent } from './main-page/homepage/homepage.component';
 import { AdminNavbarComponent } from './navbar/admin-navbar/admin-navbar.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { UserComponent } from './user-page/user/user.component';
-import { CustomerFormComponent } from './admin-page/components/customer-form/customer-form.component';
+import { EditModalComponent } from './admin-page/components/edit-modal/edit-modal.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +46,7 @@ import { CustomerFormComponent } from './admin-page/components/customer-form/cus
     ShowAllCustomerComponent,
     CreateCustomerComponent,
     CustomerFormComponent,
+    EditModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,6 +58,7 @@ import { CustomerFormComponent } from './admin-page/components/customer-form/cus
     RouterModule,
     BrowserAnimationsModule,
     MatTableModule,
+    MatSidenavModule,
   ],
   providers: [CookieService, AuthInterceptorProvider],
   bootstrap: [AppComponent],
