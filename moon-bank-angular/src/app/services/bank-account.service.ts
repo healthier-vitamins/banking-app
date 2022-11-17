@@ -24,4 +24,15 @@ export class BankAccountService {
       { headers: reqHeader }
     );
   }
+
+  updateBankAcc(bankAcc: BankAccount | null | undefined) {
+    const reqHeader = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+    return this.http.put(
+      this.API_PATH + `/update-bank-acc`,
+      JSON.stringify(bankAcc),
+      { headers: reqHeader }
+    );
+  }
 }

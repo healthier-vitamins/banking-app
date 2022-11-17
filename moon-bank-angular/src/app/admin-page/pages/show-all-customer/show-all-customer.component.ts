@@ -1,4 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { HttpErrorResponse } from '@angular/common/http';
+import {
+  AfterContentInit,
+  AfterViewInit,
+  Component,
+  DoCheck,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+} from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { BankAccount } from 'src/app/models/bank-account';
@@ -43,7 +52,7 @@ export class ShowAllCustomerComponent implements OnInit {
         console.log(this.listOfBankAcc);
         // this.dataSource = this.listOfBankAcc;
       },
-      error: (err) => {
+      error: (err: HttpErrorResponse) => {
         if (err.status === 204) {
           alert('Database is empty');
         }

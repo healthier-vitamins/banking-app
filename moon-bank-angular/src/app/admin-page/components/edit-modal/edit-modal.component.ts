@@ -1,12 +1,12 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { BankAccount } from 'src/app/models/bank-account';
 import { Customer } from 'src/app/models/customer';
 import { BankAccountService } from 'src/app/services/bank-account.service';
 import { defaultSelectOptionValidator } from '../customer-form/validators/defaultSelectOptionValidator';
+const Big = require('big.js');
 
 @Component({
   selector: 'app-edit-modal',
@@ -24,7 +24,6 @@ export class EditModalComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private bankAccService: BankAccountService,
-    private router: Router,
     public activeModal: NgbActiveModal
   ) {}
 
@@ -93,30 +92,36 @@ export class EditModalComponent implements OnInit {
     this.isSubmitted = true;
     const formData = this.customerForm.getRawValue();
 
+    this.customer!.custId = this.sentInBankAcc.customer!.custId;
     this.customer!.custEmail = formData.email;
     this.customer!.custFirstName = formData.firstName;
     this.customer!.custLastName = formData.lastName;
     this.customer!.custPhone = formData.phone;
     this.customer!.custCity = formData.city;
+    this.customer!.offers = this.sentInBankAcc.customer!.offers;
+
+    this.bankAcc!.accId = this.sentInBankAcc.accId;
     this.bankAcc!.accBal = formData.accBal;
+    console.log()
     this.bankAcc!.accType = formData.accType;
+    this.bankAcc!.accCreationDate = this.sentInBankAcc.accCreationDate;
     this.bankAcc!.customer = this.customer;
 
     if (this.customerForm.valid) {
-      this.bankAccService.saveBankAccount(this.bankAcc).subscribe({
+      this.bankAccService.updateBankAcc(this.bankAcc).subscribe({
         next: (res: any) => {
           console.log(res);
+          this.activeModal.close();
           this.customerForm.reset();
           this.accType!.setValue('--Select Option--');
-          this.router.navigate(['admin/all-customer']);
         },
         error: (err: HttpErrorResponse) => {
-          if (err.status === 406) {
-            alert('Username is taken, please try again');
+          if (err) {
+            alert('Something went wrong, please try again.');
+            console.log(err.message);
           }
         },
       });
     }
   }
-
 }

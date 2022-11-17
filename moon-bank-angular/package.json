@@ -22,6 +22,7 @@
     "@angular/router": "^14.2.0",
     "@ng-bootstrap/ng-bootstrap": "^13.1.0",
     "@popperjs/core": "^2.10.2",
+    "big.js": "^6.2.1",
     "bootstrap": "^5.2.2",
     "bootstrap-icons": "^1.9.1",
     "ngx-cookie-service": "^14.0.1",
@@ -30,7 +31,7 @@
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^14.2.7",
+    "@angular-devkit/build-angular": "^15.0.0",
     "@angular/cli": "~14.2.7",
     "@angular/compiler-cli": "^14.2.0",
     "@angular/localize": "^14.2.0",
