@@ -47,7 +47,7 @@ export class EditModalComponent implements OnInit {
     phone: ['', Validators.required],
     city: ['', Validators.required],
     accType: ['', defaultSelectOptionValidator()],
-    accBal: [0, Validators.required],
+    accBal: ['', Validators.required],
   });
 
   get firstName() {
@@ -102,7 +102,7 @@ export class EditModalComponent implements OnInit {
 
     this.bankAcc!.accId = this.sentInBankAcc.accId;
     this.bankAcc!.accBal = formData.accBal;
-    console.log()
+
     this.bankAcc!.accType = formData.accType;
     this.bankAcc!.accCreationDate = this.sentInBankAcc.accCreationDate;
     this.bankAcc!.customer = this.customer;

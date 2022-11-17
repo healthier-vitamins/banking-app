@@ -52,7 +52,10 @@
         #
       </th>
       <td mat-cell *matCellDef="let element" id="body" class="text-center">
-        <i class="bi bi-pencil-square text-secondary me-1" (click)="edit(element)"></i
+        <i
+          class="bi bi-pencil-square text-secondary me-1"
+          (click)="edit(element)"
+        ></i
         ><i class="bi bi-trash-fill text-secondary"></i>
       </td>
     </ng-container>
@@ -89,7 +92,7 @@
     <ng-container matColumnDef="accBal">
       <th mat-header-cell *matHeaderCellDef id="header">Account Balance</th>
       <td mat-cell *matCellDef="let element" id="body">
-        ${{ element.accBal }}
+        {{ element.accBal }}
       </td>
     </ng-container>
     <ng-container matColumnDef="accType">

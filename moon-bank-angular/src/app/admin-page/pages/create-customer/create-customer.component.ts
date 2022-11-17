@@ -83,7 +83,7 @@ export class CreateCustomerComponent implements OnInit {
     this.customer!.custLastName = formData.lastName;
     this.customer!.custPhone = formData.phone;
     this.customer!.custCity = formData.city;
-    this.bankAcc!.accBal = parseFloat(formData.accBal ? formData.accBal : '0');
+    this.bankAcc!.accBal = formData.accBal;
     this.bankAcc!.accType = formData.accType;
     this.bankAcc!.customer = this.customer;
 
