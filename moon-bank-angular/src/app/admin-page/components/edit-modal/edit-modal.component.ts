@@ -36,7 +36,7 @@ export class EditModalComponent implements OnInit {
       phone: this.sentInBankAcc.customer!.custPhone,
       city: this.sentInBankAcc.customer!.custCity,
       accType: this.sentInBankAcc.accType,
-      accBal: this.sentInBankAcc.accBal,
+      accBal: this.sentInBankAcc.accBal!.slice(3),
     });
   }
 
@@ -101,6 +101,7 @@ export class EditModalComponent implements OnInit {
     this.customer!.offers = this.sentInBankAcc.customer!.offers;
 
     this.bankAcc!.accId = this.sentInBankAcc.accId;
+
     this.bankAcc!.accBal = formData.accBal;
 
     this.bankAcc!.accType = formData.accType;
