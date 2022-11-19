@@ -1,13 +1,5 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import {
-  AfterContentInit,
-  AfterViewInit,
-  Component,
-  DoCheck,
-  OnChanges,
-  OnInit,
-  SimpleChanges,
-} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { BankAccount } from 'src/app/models/bank-account';
@@ -60,8 +52,22 @@ export class ShowAllCustomerComponent implements OnInit {
     });
   }
 
-  edit(element: object) {
+  edit(element: BankAccount) {
     const modalRef = this.modalService.open(EditModalComponent, { size: 'xl' });
     modalRef.componentInstance.sentInBankAcc = element;
+  }
+
+  delBankAcc(element: BankAccount) {
+    this.bankAccService.delBankAcc(element.accId).subscribe({
+      error: (err: HttpErrorResponse) => {
+        if (err.status === 400) {
+          alert(err.message);
+        }
+      },
+      complete: () => {
+        console.log('Test');
+        this.getBankAccounts();
+      },
+    });
   }
 }

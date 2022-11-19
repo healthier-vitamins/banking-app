@@ -56,7 +56,10 @@
           class="bi bi-pencil-square text-secondary me-1"
           (click)="edit(element)"
         ></i
-        ><i class="bi bi-trash-fill text-secondary"></i>
+        ><i
+          class="bi bi-trash-fill text-secondary"
+          (click)="delBankAcc(element)"
+        ></i>
       </td>
     </ng-container>
     <ng-container matColumnDef="email">

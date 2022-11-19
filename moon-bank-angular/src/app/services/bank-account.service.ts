@@ -7,6 +7,9 @@ import { BankAccount } from '../models/bank-account';
 })
 export class BankAccountService {
   private readonly API_PATH = `http://localhost:8080/api/bank-acc`;
+  reqHeader = new HttpHeaders({
+    'Content-Type': 'application/json',
+  });
 
   constructor(private http: HttpClient) {}
 
@@ -15,24 +18,25 @@ export class BankAccountService {
   }
 
   saveBankAccount(bankAcc: BankAccount | null | undefined) {
-    const reqHeader = new HttpHeaders({
-      'Content-Type': 'application/json',
-    });
+    // const reqHeader = new HttpHeaders({
+    //   'Content-Type': 'application/json',
+    // });
     return this.http.post(
       this.API_PATH + `/save-user`,
       JSON.stringify(bankAcc),
-      { headers: reqHeader }
+      { headers: this.reqHeader }
     );
   }
 
   updateBankAcc(bankAcc: BankAccount | null | undefined) {
-    const reqHeader = new HttpHeaders({
-      'Content-Type': 'application/json',
-    });
     return this.http.put(
       this.API_PATH + `/update-bank-acc`,
       JSON.stringify(bankAcc),
-      { headers: reqHeader }
+      { headers: this.reqHeader }
     );
+  }
+
+  delBankAcc(bankAccId: number | null | undefined) {
+    return this.http.delete(this.API_PATH + `/del-bank-acc/${bankAccId}`);
   }
 }
