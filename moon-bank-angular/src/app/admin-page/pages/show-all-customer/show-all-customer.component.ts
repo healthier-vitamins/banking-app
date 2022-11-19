@@ -1,6 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { finalize } from 'rxjs';
 
 import { BankAccount } from 'src/app/models/bank-account';
 import { Customer } from 'src/app/models/customer';
@@ -58,16 +59,19 @@ export class ShowAllCustomerComponent implements OnInit {
   }
 
   delBankAcc(element: BankAccount) {
-    this.bankAccService.delBankAcc(element.accId).subscribe({
-      error: (err: HttpErrorResponse) => {
-        if (err.status === 400) {
-          alert(err.message);
-        }
-      },
-      complete: () => {
-        console.log('Test');
-        this.getBankAccounts();
-      },
-    });
+    this.bankAccService
+      .delBankAcc(element.accId)
+      .pipe(
+        finalize(() => {
+          this.getBankAccounts();
+        })
+      )
+      .subscribe({
+        error: (err: HttpErrorResponse) => {
+          if (err.status === 404) {
+            alert('Invalid bank account.');
+          }
+        },
+      });
   }
 }
