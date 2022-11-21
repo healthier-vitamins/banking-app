@@ -5,7 +5,9 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { BankAccount } from 'src/app/models/bank-account';
 import { Customer } from 'src/app/models/customer';
 import { BankAccountService } from 'src/app/services/bank-account.service';
-import { defaultSelectOptionValidator } from '../customer-form/validators/defaultSelectOptionValidator';
+import { defaultSelectOptionValidator } from '../../validators/defaultSelectOptionValidator';
+import { onlyNumAndDotValidator } from '../../validators/onlyNumAndDotValidator';
+import { onlyNumValidator } from '../../validators/onlyNumValidator';
 const Big = require('big.js');
 
 @Component({
@@ -28,7 +30,7 @@ export class EditModalComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // console.log(this.sentInBankAcc)
+    console.log(this.sentInBankAcc);
     this.customerForm.setValue({
       firstName: this.sentInBankAcc.customer!.custFirstName,
       lastName: this.sentInBankAcc.customer!.custLastName,
@@ -42,7 +44,7 @@ export class EditModalComponent implements OnInit {
 
   transformAccBall(accBal: string | null | undefined) {
     accBal = accBal!.slice(1);
-    accBal = accBal!.replace(',', '');
+    accBal = accBal!.replaceAll(',', '');
     if (accBal) {
       return accBal;
     }
@@ -53,10 +55,13 @@ export class EditModalComponent implements OnInit {
     firstName: ['', Validators.required],
     lastName: ['', Validators.required],
     email: ['', Validators.required],
-    phone: ['', Validators.required],
+    phone: [
+      '',
+      [Validators.required, onlyNumValidator(), Validators.maxLength(8)],
+    ],
     city: ['', Validators.required],
     accType: ['', defaultSelectOptionValidator()],
-    accBal: ['', Validators.required],
+    accBal: ['', [Validators.required, onlyNumAndDotValidator()]],
   });
 
   get firstName() {
@@ -93,7 +98,10 @@ export class EditModalComponent implements OnInit {
       'is-invalid':
         this.isSubmitted &&
         (formControl?.hasError('required') ||
-          formControl?.hasError('defaultSelectOptionValidator')),
+          formControl?.hasError('defaultSelectOptionValidator') ||
+          formControl?.hasError('onlyNumAndDotValidator') ||
+          formControl?.hasError('maxlength') ||
+          formControl?.hasError('onlyNumValidator')),
     };
   }
 
@@ -120,8 +128,8 @@ export class EditModalComponent implements OnInit {
     if (this.customerForm.valid) {
       this.bankAccService.updateBankAcc(this.bankAcc).subscribe({
         next: (res: any) => {
-          console.log(res);
-          this.activeModal.close();
+          // console.log(res);
+          this.activeModal.close("MODAL_CLOSED");
           this.customerForm.reset();
           this.accType!.setValue('--Select Option--');
         },

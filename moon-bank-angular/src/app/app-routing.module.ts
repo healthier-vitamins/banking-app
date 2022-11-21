@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminComponent } from './admin-page/admin/admin.component';
-import { CustomerFormComponent } from './admin-page/components/customer-form/customer-form.component';
+import { AdminDashboardComponent } from './admin-page/pages/admin-dashboard/admin-dashboard.component';
 import { CreateCustomerComponent } from './admin-page/pages/create-customer/create-customer.component';
 import { ShowAllCustomerComponent } from './admin-page/pages/show-all-customer/show-all-customer.component';
 import { ForbiddenPageComponent } from './forbidden-page/forbidden-page.component';
@@ -15,6 +15,7 @@ const routes: Routes = [
     path: 'admin',
     component: AdminComponent,
     children: [
+      { path: '', component: AdminDashboardComponent },
       { path: 'all-customer', component: ShowAllCustomerComponent },
       { path: 'create-customer', component: CreateCustomerComponent },
     ],

@@ -68,18 +68,33 @@
 
     <div class="col-5">
       <label for="phone" class="form-label">Phone</label>
-      <input
+      <div class="input-group">
+        <span class="input-group-text">+65</span>
+        <input
         type="text"
         class="form-control"
         formControlName="phone"
         [ngClass]="isInvalid('phone')"
-      />
+        />
+      </div>
       <div id="errors">
         <div
           *ngIf="isSubmitted && phone?.hasError('required')"
           class="text-danger"
         >
           <small>Phone cannot be left blank.</small>
+        </div>
+        <div
+          *ngIf="isSubmitted && phone?.hasError('maxlength')"
+          class="text-danger"
+        >
+          <small>Phone cannot have more than 8 numbers</small>
+        </div>
+        <div
+          *ngIf="isSubmitted && phone?.hasError('onlyNumValidator')"
+          class="text-danger"
+        >
+          <small>Phone can only contain numbers.</small>
         </div>
       </div>
     </div>
@@ -141,6 +156,12 @@
           class="text-danger"
         >
           <small>Account balance cannot be left blank.</small>
+        </div>
+        <div
+          *ngIf="isSubmitted && accBal?.hasError('onlyNumAndDotValidator')"
+          class="text-danger mt-0"
+        >
+          <small>Account balance can only contain numbers.</small>
         </div>
       </div>
     </div>

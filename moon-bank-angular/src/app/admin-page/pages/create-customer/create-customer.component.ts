@@ -5,7 +5,9 @@ import { Router } from '@angular/router';
 import { BankAccount } from 'src/app/models/bank-account';
 import { Customer } from 'src/app/models/customer';
 import { BankAccountService } from 'src/app/services/bank-account.service';
-import { defaultSelectOptionValidator } from '../../components/customer-form/validators/defaultSelectOptionValidator';
+import { defaultSelectOptionValidator } from '../../validators/defaultSelectOptionValidator';
+import { onlyNumAndDotValidator } from '../../validators/onlyNumAndDotValidator';
+import { onlyNumValidator } from '../../validators/onlyNumValidator';
 
 @Component({
   selector: 'app-create-customer',
@@ -30,10 +32,13 @@ export class CreateCustomerComponent implements OnInit {
     firstName: ['', Validators.required],
     lastName: ['', Validators.required],
     email: ['', Validators.required],
-    phone: ['', Validators.required],
+    phone: [
+      '',
+      [Validators.required, onlyNumValidator(), Validators.maxLength(8)],
+    ],
     city: ['', Validators.required],
     accType: ['--Select Option--', defaultSelectOptionValidator()],
-    accBal: ['', Validators.required],
+    accBal: ['', [Validators.required, onlyNumAndDotValidator()]],
   });
 
   get firstName() {
@@ -70,7 +75,10 @@ export class CreateCustomerComponent implements OnInit {
       'is-invalid':
         this.isSubmitted &&
         (formControl?.hasError('required') ||
-          formControl?.hasError('defaultSelectOptionValidator')),
+          formControl?.hasError('defaultSelectOptionValidator') ||
+          formControl?.hasError('onlyNumAndDotValidator') ||
+          formControl?.hasError('maxlength') ||
+          formControl?.hasError('onlyNumValidator')),
     };
   }
 

@@ -56,6 +56,10 @@ export class ShowAllCustomerComponent implements OnInit {
   edit(element: BankAccount) {
     const modalRef = this.modalService.open(EditModalComponent, { size: 'xl' });
     modalRef.componentInstance.sentInBankAcc = element;
+
+    modalRef.result.finally(() => {
+      this.getBankAccounts();
+    });
   }
 
   delBankAcc(element: BankAccount) {

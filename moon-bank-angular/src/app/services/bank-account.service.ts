@@ -39,4 +39,8 @@ export class BankAccountService {
   delBankAcc(bankAccId: number | null | undefined) {
     return this.http.delete(this.API_PATH + `/del-bank-acc/${bankAccId}`);
   }
+
+  getBankAccCount() {
+    return this.http.get(this.API_PATH + `/bank-acc-count`)
+  }
 }

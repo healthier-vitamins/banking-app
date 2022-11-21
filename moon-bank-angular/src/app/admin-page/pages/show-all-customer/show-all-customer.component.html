@@ -34,12 +34,25 @@
   </table>
 </div> -->
 
-<div class="m-3 mt-4">
+<div class="m-3 mt-4 p-4 border rounded">
+  <div class="d-inline-flex border border-bottom-0 rounded-top mb-0 px-4 pt-1">
+    <h5>
+      <i
+        class="bi bi-arrow-clockwise text-secondary"
+        style="font-size: 18px"
+        (click)="getBankAccounts()"
+      ></i>
+    </h5>
+    <i
+      class="bi bi-plus-square text-secondary ms-2"
+      routerLink="/admin/create-customer"
+    ></i>
+  </div>
   <table
     *ngIf="!!listOfBankAcc"
     mat-table
     [dataSource]="listOfBankAcc"
-    class=""
+    class="mt-0"
     style="width: 100%"
   >
     <ng-container matColumnDef="#">
