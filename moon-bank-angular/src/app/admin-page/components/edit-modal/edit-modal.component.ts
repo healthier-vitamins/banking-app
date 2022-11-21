@@ -36,8 +36,17 @@ export class EditModalComponent implements OnInit {
       phone: this.sentInBankAcc.customer!.custPhone,
       city: this.sentInBankAcc.customer!.custCity,
       accType: this.sentInBankAcc.accType,
-      accBal: this.sentInBankAcc.accBal!.slice(3),
+      accBal: this.transformAccBall(this.sentInBankAcc.accBal),
     });
+  }
+
+  transformAccBall(accBal: string | null | undefined) {
+    accBal = accBal!.slice(1);
+    accBal = accBal!.replace(',', '');
+    if (accBal) {
+      return accBal;
+    }
+    return '';
   }
 
   customerForm = this.formBuilder.group({

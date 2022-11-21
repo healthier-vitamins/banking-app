@@ -1,4 +1,4 @@
-<div class="m-5 border rounded p-4" style="max-width: 70rem;">
+<div class="m-5 border rounded p-4" style="max-width: 70rem">
   <form class="row g-3" [formGroup]="customerForm" (ngSubmit)="onSubmit()">
     <div class="col-md-6">
       <label for="firstName" class="form-label">First Name</label>
@@ -123,12 +123,19 @@
           [ngClass]="isInvalid('accBal')"
         />
       </div>
+     
       <div id="errors">
         <div
           *ngIf="isSubmitted && accBal?.hasError('required')"
           class="text-danger"
         >
           <small>Account balance cannot be left blank.</small>
+        </div>
+        <div
+          *ngIf="isSubmitted && accBal?.hasError('onlyNumValidator')"
+          class="text-danger"
+        >
+          <small>Account balance can only contains numbers.</small>
         </div>
       </div>
     </div>

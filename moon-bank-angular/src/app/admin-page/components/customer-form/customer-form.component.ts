@@ -3,9 +3,11 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { defaultSelectOptionValidator } from 'src/app/admin-page/components/customer-form/validators/defaultSelectOptionValidator';
+
 import { BankAccount } from 'src/app/models/bank-account';
 import { Customer } from 'src/app/models/customer';
 import { BankAccountService } from 'src/app/services/bank-account.service';
+import { onlyNumValidator } from './validators/onlyNumValidator';
 
 @Component({
   selector: 'app-customer-form',
@@ -33,7 +35,7 @@ export class CustomerFormComponent implements OnInit {
     phone: ['', Validators.required],
     city: ['', Validators.required],
     accType: ['--Select Option--', defaultSelectOptionValidator()],
-    accBal: ['', Validators.required],
+    accBal: ['', [Validators.required, onlyNumValidator()]],
   });
 
   get firstName() {
@@ -70,7 +72,8 @@ export class CustomerFormComponent implements OnInit {
       'is-invalid':
         this.isSubmitted &&
         (formControl?.hasError('required') ||
-          formControl?.hasError('defaultSelectOptionValidator')),
+          formControl?.hasError('defaultSelectOptionValidator') ||
+          formControl?.hasError('onlyNumValidator')),
     };
   }
 
