@@ -28,6 +28,7 @@ export class ShowAllCustomerComponent implements OnInit {
   listOfBankAcc?: BankAccount[];
   customer: Customer = new Customer();
   // dataSource = this.listOfBankAcc;
+  counter: number = 1;
 
   constructor(
     private bankAccService: BankAccountService,
@@ -35,6 +36,7 @@ export class ShowAllCustomerComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    // this.loadingBalls();
     this.getBankAccounts();
   }
 
@@ -78,4 +80,20 @@ export class ShowAllCustomerComponent implements OnInit {
         },
       });
   }
+
+  refresh() {
+    this.listOfBankAcc = [];
+    this.getBankAccounts();
+  }
+
+  // loadingBalls() {
+  //   setTimeout(() => {
+  //     document.getElementById(`loading-ball${this.counter}`)!.style.display =
+  //       'block';
+  //     this.counter++;
+  //     if (this.counter <= 4) {
+  //       this.loadingBalls();
+  //     }
+  //   }, 160);
+  // }
 }

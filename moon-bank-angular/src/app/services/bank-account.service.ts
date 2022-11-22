@@ -41,6 +41,10 @@ export class BankAccountService {
   }
 
   getBankAccCount() {
-    return this.http.get(this.API_PATH + `/bank-acc-count`)
+    return this.http.get(this.API_PATH + `/bank-acc-count`);
+  }
+
+  getAvgAccsCreated() {
+    return this.http.get(this.API_PATH + '/accs-created-over-lifetime');
   }
 }

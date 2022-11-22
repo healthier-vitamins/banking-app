@@ -43,3 +43,10 @@ i:hover {
   background-color: #40417d;
   color: white;
 }
+
+.spinner-grow {
+  width: 19px;
+  height: 19px;
+  margin-left: 3px;
+  display: none;
+}

@@ -27,6 +27,7 @@ import { AdminNavbarComponent } from './navbar/admin-navbar/admin-navbar.compone
 import { NavbarComponent } from './navbar/navbar.component';
 import { UserComponent } from './user-page/user/user.component';
 import { AdminDashboardComponent } from './admin-page/pages/admin-dashboard/admin-dashboard.component';
+import { UserNavComponent } from './user-page/components/user-nav/user-nav.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { AdminDashboardComponent } from './admin-page/pages/admin-dashboard/admi
     CreateCustomerComponent,
     EditModalComponent,
     AdminDashboardComponent,
+    UserNavComponent,
   ],
   imports: [
     BrowserModule,

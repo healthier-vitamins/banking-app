@@ -1,18 +1,27 @@
 <div class="d-flex w-100 h-100">
   <div class="" style="width: 75%">
-    <h5 class="m-3"> <strong>Welcome to admin portal</strong></h5>
-</div>
+    <h5 class="m-3"><strong>Welcome to admin portal</strong></h5>
+  </div>
   <div class="border-start" style="width: 25%">
-    <div class="d-flex flex-column border rounded m-4">
+    <div class="d-flex flex-column  border rounded m-4" style="max-width: 28rem;">
       <h5
         class="text-white rounded-top px-2 py-1"
-        style="background-color: #40417d; font-size: 18px;"
+        style="background-color: #40417d; font-size: 18px"
       >
         Statistics
       </h5>
 
-      <div class="d-flex px-2 py-1">
-        <p style="font-size: 16px;"><b class="text-secondary">Bank Accounts</b>: {{ bankAccCount }}</p>
+      <div class="px-2 pt-1">
+        <p style="font-size: 16px">
+          <b class="text-secondary">Bank Accounts</b>:
+          {{ !!bankAccCount ? bankAccCount : "Error fetching data" }}
+        </p>
+      </div>
+      <div class="px-2 pb-1">
+        <p style="font-size: 16px">
+          <b class="text-secondary">Average accounts created per year</b>:
+          {{ !!avgAccs ? avgAccs : "Error fetching data" }}
+        </p>
       </div>
     </div>
   </div>

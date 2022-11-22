@@ -9,8 +9,12 @@
 </div> -->
 
 <nav class="d-flex align-items-center py-2" style="background-color: #40417d">
-  <div class="d-flex mt-1 align-items-center ms-3" style="cursor: pointer" mat-button (click)="drawer.toggle()">
-    
+  <div
+    class="d-flex mt-1 align-items-center ms-3"
+    style="cursor: pointer"
+    mat-button
+    (click)="drawer.toggle()"
+  >
     <h4 style="font-size: 25px"><i class="text-white bi bi-list"></i></h4>
   </div>
   <div class="ms-auto d-flex align-items-center mt-1" style="cursor: pointer">
@@ -21,9 +25,10 @@
   </div>
 </nav>
 
-<mat-drawer-container class="" style="height: 95.2vh !important;" autosize>
+<mat-drawer-container class="" style="height: 95.2vh !important" autosize>
   <mat-drawer #drawer class="" mode="side">
     <app-sidenav></app-sidenav>
   </mat-drawer>
+
   <router-outlet></router-outlet>
 </mat-drawer-container>
