@@ -22,7 +22,7 @@ export class BankAccountService {
     //   'Content-Type': 'application/json',
     // });
     return this.http.post(
-      this.API_PATH + `/save-user`,
+      this.API_PATH + `/save-acc`,
       JSON.stringify(bankAcc),
       { headers: this.reqHeader }
     );
@@ -30,21 +30,25 @@ export class BankAccountService {
 
   updateBankAcc(bankAcc: BankAccount | null | undefined) {
     return this.http.put(
-      this.API_PATH + `/update-bank-acc`,
+      this.API_PATH + `/update-acc`,
       JSON.stringify(bankAcc),
       { headers: this.reqHeader }
     );
   }
 
   delBankAcc(bankAccId: number | null | undefined) {
-    return this.http.delete(this.API_PATH + `/del-bank-acc/${bankAccId}`);
+    return this.http.delete(this.API_PATH + `/del-acc/${bankAccId}`);
   }
 
   getBankAccCount() {
-    return this.http.get(this.API_PATH + `/bank-acc-count`);
+    return this.http.get(this.API_PATH + `/count`);
   }
 
   getAvgAccsCreated() {
     return this.http.get(this.API_PATH + '/accs-created-over-lifetime');
+  }
+
+  getAccById(id: number | null | undefined) {
+    return this.http.get(this.API_PATH + `/get-acc/${id}`);
   }
 }

@@ -3,8 +3,12 @@
     <i class="bi bi-moon-stars ms-4" style="margin-right: 5px"> </i
     ><strong>Moon Bank</strong></a
   >
-
-  <div id="logout-btn-container" class="ms-auto me-5">
+  
+  <div id="logout-btn-container" class="ms-auto me-5 d-flex">
+    <div class="bg bg-secondary" style="width: 1px;"></div>
+    <div class="align-self-center">
+     <h4><i class="bi bi-person-circle px-3 text-light user"></i></h4>
+    </div>
     <div
       id="logout-btn"
       class="py-3 px-3"
@@ -23,8 +27,71 @@
     </div>
   </div>
 </nav>
-<nav class="d-flex" style="background-color: #ebf4ff">
-  <div style="margin-left: 60px; margin-right: 60px;">
-    <b class="text-secondary">Offers</b>
+<nav class="d-flex" style="background-color: #b8c6ff; height: 44px">
+  <div class="d-flex mx-auto">
+    <div class="dropdown">
+      <div
+        class="py-2 px-3 bg bg-light menu-options dropbtn"
+        id="menu-options"
+        routerLink="/user/all-offers"
+        (click)="menuLogic('offer')"
+        [attr.id]="selectedMenuOption('offer')"
+      >
+        <b class="text-dark">Offers</b>
+      </div>
+      <div class="dropdown-content">
+        <a routerLink="/user/car-loan" (click)="menuLogic('offer')">Car Loan</a>
+        <a routerLink="/user/house-loan" (click)="menuLogic('offer')"
+          >House Loan</a
+        >
+      </div>
+    </div>
+
+    <div style="width: 1px"></div>
+    <div
+      class="py-2 px-3 bg bg-light menu-options"
+      id="menu-options"
+      (click)="menuLogic('transfer')"
+      [attr.id]="selectedMenuOption('transfer')"
+    >
+      <b class="text-dark">Transfer</b>
+    </div>
+    <div style="width: 1px"></div>
+    <div class="dropdown">
+      <div
+        class="py-2 px-3 bg bg-light menu-options dropbtn"
+        id="menu-options"
+        (click)="menuLogic('card')"
+        [attr.id]="selectedMenuOption('card')"
+      >
+        <b class="text-dark">Cards</b>
+      </div>
+      <div class="dropdown-content">
+        <a
+          routerLink="/user/apply-credit-card"
+          (click)="menuLogic('card')"
+          class="mx-auto"
+          >Apply Card</a
+        >
+      </div>
+    </div>
+    <div style="width: 1px"></div>
+    <div
+      class="py-2 px-3 bg bg-light menu-options"
+      id="menu-options"
+      (click)="menuLogic('pay')"
+      [attr.id]="selectedMenuOption('pay')"
+    >
+      <b class="text-dark">Pay</b>
+    </div>
+    <div style="width: 1px"></div>
+    <div
+      class="py-2 px-3 bg bg-light menu-options"
+      id="menu-options"
+      (click)="menuLogic('invest')"
+      [attr.id]="selectedMenuOption('invest')"
+    >
+      <b class="text-dark">Invest</b>
+    </div>
   </div>
 </nav>
