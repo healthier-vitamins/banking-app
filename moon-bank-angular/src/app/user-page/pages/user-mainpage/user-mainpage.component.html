@@ -1,1 +1,30 @@
-<p>user-mainpage works!</p>
+<div class="mainpage-container">
+  <div class="creds-container">
+    
+    <div class="spinners">
+        <div class="spinner-grow text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-success" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-danger" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-warning" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-info" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+        
+    <div *ngIf="!!bankAcc" class="creds-left-container">
+      <h6>
+        Welcome back {{ bankAcc.customer!.custFirstName }}
+        {{ bankAcc.customer!.custLastName }}
+      </h6>
+    </div>
+    <div class="creds-right-container"></div>
+  </div>
+</div>

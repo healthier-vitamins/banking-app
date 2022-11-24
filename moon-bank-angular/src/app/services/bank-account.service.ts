@@ -48,7 +48,7 @@ export class BankAccountService {
     return this.http.get(this.API_PATH + '/accs-created-over-lifetime');
   }
 
-  getAccById(id: number | null | undefined) {
-    return this.http.get(this.API_PATH + `/get-acc/${id}`);
+  getAccById(bankAccId: number | null | undefined) {
+    return this.http.get(this.API_PATH + `/get-acc/${bankAccId}`);
   }
 }

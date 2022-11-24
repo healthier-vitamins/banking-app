@@ -27,13 +27,13 @@ import { HomepageComponent } from './main-page/homepage/homepage.component';
 import { AdminNavbarComponent } from './navbar/admin-navbar/admin-navbar.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { UserNavComponent } from './user-page/components/user-nav/user-nav.component';
+import { AllCardsComponent } from './user-page/pages/all-cards/all-cards.component';
 import { AllOffersComponent } from './user-page/pages/all-offers/all-offers.component';
+import { ApplyCreditCardComponent } from './user-page/pages/apply-credit-card/apply-credit-card.component';
 import { CarLoanOfferComponent } from './user-page/pages/car-loan-offer/car-loan-offer.component';
 import { HouseLoanOfferComponent } from './user-page/pages/house-loan-offer/house-loan-offer.component';
-import { UserComponent } from './user-page/user/user.component';
-import { AllCardsComponent } from './user-page/pages/all-cards/all-cards.component';
-import { ApplyCreditCardComponent } from './user-page/pages/apply-credit-card/apply-credit-card.component';
 import { UserMainpageComponent } from './user-page/pages/user-mainpage/user-mainpage.component';
+import { UserComponent } from './user-page/user/user.component';
 
 @NgModule({
   declarations: [

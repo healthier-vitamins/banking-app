@@ -1,6 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
+import { finalize } from 'rxjs';
 import { BankAccount } from 'src/app/models/bank-account';
 import { User } from 'src/app/models/user';
 import { AuthService } from 'src/app/services/auth.service';
@@ -25,28 +26,35 @@ export class UserMainpageComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUserAcc();
-    this.getBankAcc();
   }
 
   getUserAcc() {
-    this.userService.getUser(this.cookieService.get('username')).subscribe({
-      next: (res: any) => {
-        console.log(res);
-        this.user = res as User;
-        this.cookieService.set(
-          'id',
-          res.bankAccId,
-          this.authService.getExpiredDate(),
-          '/',
-          'localhost'
-        );
-      },
-      error: (err: HttpErrorResponse) => {
-        if (err.status === 404) {
-          alert('Username not found');
-        }
-      },
-    });
+    const username = this.cookieService.get('username');
+    this.userService
+      .getUser(username)
+      .pipe(
+        finalize(() => {
+          this.getBankAcc();
+        })
+      )
+      .subscribe({
+        next: (res: any) => {
+          console.log(res);
+          this.user = res as User;
+          this.cookieService.set(
+            'id',
+            res.bankAccId,
+            this.authService.getExpiredDate(),
+            '/',
+            'localhost'
+          );
+        },
+        error: (err: HttpErrorResponse) => {
+          if (err.status === 404) {
+            alert('Username not found');
+          }
+        },
+      });
   }
 
   getBankAcc() {
@@ -63,4 +71,16 @@ export class UserMainpageComponent implements OnInit {
       },
     });
   }
+
+  // promise() {
+  //   return new Promise((resolve) => {
+  //     resolve(this.getUserAcc());
+  //   });
+  // }
+
+  // async testPromise() {
+  //   await this.promise().finally(() => {
+  //     this.getBankAcc();
+  //   });
+  // }
 }
