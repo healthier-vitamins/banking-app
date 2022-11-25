@@ -1,30 +1,59 @@
 <div class="mainpage-container">
-  <div class="creds-container">
-    
-    <div class="spinners">
-        <div class="spinner-grow text-primary" role="status">
-            <span class="visually-hidden">Loading...</span>
-        </div>
-        <div class="spinner-grow text-success" role="status">
-            <span class="visually-hidden">Loading...</span>
-        </div>
-        <div class="spinner-grow text-danger" role="status">
-            <span class="visually-hidden">Loading...</span>
-        </div>
-        <div class="spinner-grow text-warning" role="status">
-            <span class="visually-hidden">Loading...</span>
-        </div>
-        <div class="spinner-grow text-info" role="status">
-            <span class="visually-hidden">Loading...</span>
-        </div>
+  <div class="spinners" *ngIf="!bankAcc">
+    <div class="spinner-grow text-primary" role="status">
+      <span class="visually-hidden">Loading...</span>
     </div>
-        
-    <div *ngIf="!!bankAcc" class="creds-left-container">
-      <h6>
-        Welcome back {{ bankAcc.customer!.custFirstName }}
+    <div class="spinner-grow text-success" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <div class="spinner-grow text-danger" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <div class="spinner-grow text-warning" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <div class="spinner-grow text-info" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+
+  <div class="creds-container" *ngIf="!!bankAcc">
+    <div class="creds-left-container">
+      <h6>Welcome back</h6>
+      <h5 class="user-name">
+        {{ bankAcc.customer!.custFirstName }}
         {{ bankAcc.customer!.custLastName }}
-      </h6>
+      </h5>
+      <p class="personalise-text">
+        Would you like to personalise your name?
+        <a routerLink="" class="personalise-link">Yes</a> or
+        <a routerLink="" class="personalise-link">No</a>
+      </p>
+      <p class="messages">
+        There are <a routerLink="" class="messages-link">no new messages</a> for
+        you.
+      </p>
     </div>
-    <div class="creds-right-container"></div>
+    <div class="creds-right-container">
+      <div class="financial-title">
+        <h5>Your financial overview</h5>
+        <i class="bi bi-info-circle info"></i>
+      </div>
+      <small class="month-year">{{ getMonth() }}</small>
+
+      <div class="financial-stats">
+        <div class="financial-line">
+          <small>Cash & Investments</small>
+          <small class="financial-value">{{ bankAcc.accBal }}</small>
+        </div>
+        <div class="divider"></div>
+
+        <div class="financial-line">
+          <small>Card & Loans</small>
+          <small class="financial-value">SGD0</small>
+        </div>
+        <div class="divider"></div>
+      </div>
+    </div>
   </div>
 </div>

@@ -14,6 +14,21 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./user-mainpage.component.css'],
 })
 export class UserMainpageComponent implements OnInit {
+  months = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+  ];
+
   bankAcc!: BankAccount;
   user!: User;
 
@@ -70,6 +85,12 @@ export class UserMainpageComponent implements OnInit {
         }
       },
     });
+  }
+
+  getMonth() {
+    return `${
+      this.months[new Date().getMonth() - 1]
+    } ${new Date().getFullYear()}`;
   }
 
   // promise() {
