@@ -3,11 +3,11 @@
     <i class="bi bi-moon-stars ms-4" style="margin-right: 5px"> </i
     ><strong>Moon Bank</strong></a
   >
-  
+
   <div id="logout-btn-container" class="ms-auto me-5 d-flex">
-    <div class="bg bg-secondary" style="width: 1px;"></div>
+    <div class="bg bg-secondary" style="width: 1px"></div>
     <div class="align-self-center mt-1">
-     <h4><i class="bi bi-person-circle px-3 text-light user"></i></h4>
+      <h4><i class="bi bi-person-circle px-3 text-light user"></i></h4>
     </div>
     <div
       id="logout-btn"
@@ -27,7 +27,7 @@
     </div>
   </div>
 </nav>
-<nav class="d-flex bg bg-light" style=" height: 44px">
+<nav class="d-flex bg bg-light" style="height: 44px">
   <div class="d-flex ms-2">
     <div class="dropdown">
       <div
@@ -63,6 +63,7 @@
         id="menu-options"
         (click)="menuLogic('card')"
         [attr.id]="selectedMenuOption('card')"
+        routerLink="/user/all-cards"
       >
         <b class="text-dark">Cards</b>
       </div>

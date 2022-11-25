@@ -2,10 +2,10 @@ export class Offer {
   constructor(
     public offerId?: number | null,
     public offerName?: string | null,
-    public loanAmnt?: number | null,
-    public interestRatePercent?: number | null,
-    public interestFreeCashWithdrawal?: number | null,
-    public annualFee?: number | null,
-    public preclosureCharges?: number | null
+    public loanAmnt?: string | null,
+    public interestRatePercent?: string | null,
+    public interestFreeCashWithdrawal?: string | null,
+    public annualFee?: string | null,
+    public preclosureCharges?: string | null
   ) {}
 }

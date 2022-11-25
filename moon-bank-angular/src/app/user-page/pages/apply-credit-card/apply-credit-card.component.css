@@ -1,0 +1,42 @@
+.main-container {
+    width: 100%;
+    height: 50rem;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.apply-container {
+    border: 1px solid lightgrey;
+    margin: 2rem;
+    height: max-content;
+    border-radius: 0.375rem;
+    width: max-content;
+    display: flex;
+    flex-flow: column;
+}
+
+.img-container {
+    background-image: url("./imgs/credit-card.jpg");
+    background-attachment: local;
+    width: 35rem;
+    height: 20rem;
+    background-size: cover;
+    border-top-left-radius: 0.375rem;
+    border-top-right-radius: 0.375rem;
+    display: flex;
+}
+
+.apply-title {
+    margin-top: auto;
+    margin-left: auto;
+    margin-right: 1rem;
+    color: rgb(255, 255, 255);
+
+
+}
+
+.apply-body { 
+
+}
