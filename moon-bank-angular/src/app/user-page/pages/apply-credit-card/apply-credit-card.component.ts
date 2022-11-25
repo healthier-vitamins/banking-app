@@ -31,9 +31,12 @@ export class ApplyCreditCardComponent implements OnInit {
       error: (err: HttpErrorResponse) => {
         if (err.status === 404) {
           alert('Bank account id does not exist.');
+        } else if (err.status === 406) {
+          alert('Something is wrong with account balance.');
+        } else {
+          console.log(err);
+          alert('Something went wrong with fetching credit card offer data.');
         }
-        console.log(err);
-        alert('Something went wrong with fetching credit card offer data.');
       },
     });
   }
