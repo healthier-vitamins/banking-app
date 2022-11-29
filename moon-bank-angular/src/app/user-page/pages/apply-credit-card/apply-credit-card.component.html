@@ -3,8 +3,22 @@
     <div class="img-container">
       <h4 class="apply-title"><strong>Apply for new Credit Card</strong></h4>
     </div>
-    <div class="apply-body">
-        <p></p>
+    <div class="apply-body" *ngIf="!!offer">
+      <div class="line">
+        <p>Annual Fee:</p>
+        <p class="value">{{ offer.annualFee }}</p>
+      </div>
+      <div class="line">
+        <p>Interest Free Cash Withdrawal:</p>
+        <p class="value">{{ offer.interestFreeCashWithdrawal }}</p>
+      </div>
+      <div class="line">
+        <p>Interest Rate:</p>
+        <p class="value">{{ offer.interestRatePercent }}%</p>
+      </div>
+      <div class="btn-container">
+        <button class="apply-btn">Apply</button>
+      </div>
     </div>
   </div>
 </div>
