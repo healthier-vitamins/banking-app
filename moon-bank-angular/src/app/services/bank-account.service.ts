@@ -18,9 +18,6 @@ export class BankAccountService {
   }
 
   saveBankAccount(bankAcc: BankAccount | null | undefined) {
-    // const reqHeader = new HttpHeaders({
-    //   'Content-Type': 'application/json',
-    // });
     return this.http.post(
       this.API_PATH + `/save-acc`,
       JSON.stringify(bankAcc),

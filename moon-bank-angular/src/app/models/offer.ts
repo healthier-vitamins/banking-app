@@ -6,6 +6,7 @@ export class Offer {
     public interestRatePercent?: string | null,
     public interestFreeCashWithdrawal?: string | null,
     public annualFee?: string | null,
-    public preclosureCharges?: string | null
+    public preclosureCharges?: string | null,
+    public custId?: number | null
   ) {}
 }
