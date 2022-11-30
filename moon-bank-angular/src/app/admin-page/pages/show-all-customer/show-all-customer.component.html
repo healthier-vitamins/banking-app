@@ -289,16 +289,30 @@
                   </tr>
                   <tr>
                     <td class="expanded-body-td">{{ offer.offerName }}</td>
-                    <td class="expanded-body-td">{{ offer.annualFee }}</td>
-                    <td class="expanded-body-td">{{ offer.loanAmnt }}</td>
                     <td class="expanded-body-td">
-                      {{ offer.interestFreeCashWithdrawal }}
+                      {{ offer.annualFee ? offer.annualFee : "NA" }}
                     </td>
                     <td class="expanded-body-td">
-                      {{ offer.interestRatePercent }}%
+                      {{ offer.loanAmnt ? offer.loanAmnt : "NA" }}
                     </td>
                     <td class="expanded-body-td">
-                      {{ offer.preclosureCharges }}
+                      {{
+                        offer.interestFreeCashWithdrawal
+                          ? offer.interestFreeCashWithdrawal
+                          : "NA"
+                      }}
+                    </td>
+                    <td class="expanded-body-td">
+                      {{
+                        offer.interestRatePercent
+                          ? offer.interestRatePercent
+                          : "NA"
+                      }}{{ offer.interestRatePercent ? "%" : "" }}
+                    </td>
+                    <td class="expanded-body-td">
+                      {{
+                        offer.preclosureCharges ? offer.preclosureCharges : "NA"
+                      }}
                     </td>
                   </tr>
                 </table>
