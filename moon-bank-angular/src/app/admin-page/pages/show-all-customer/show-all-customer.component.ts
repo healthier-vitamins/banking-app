@@ -1,3 +1,10 @@
+import {
+  animate,
+  state,
+  style,
+  transition,
+  trigger,
+} from '@angular/animations';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -5,6 +12,7 @@ import { finalize } from 'rxjs';
 
 import { BankAccount } from 'src/app/models/bank-account';
 import { Customer } from 'src/app/models/customer';
+import { Offer } from 'src/app/models/offer';
 import { BankAccountService } from 'src/app/services/bank-account.service';
 import { EditModalComponent } from '../../components/edit-modal/edit-modal.component';
 
@@ -12,9 +20,32 @@ import { EditModalComponent } from '../../components/edit-modal/edit-modal.compo
   selector: 'app-show-all-customer',
   templateUrl: './show-all-customer.component.html',
   styleUrls: ['./show-all-customer.component.css'],
+  animations: [
+    trigger('detailExpand', [
+      state('collapsed', style({ height: '0px', minHeight: '0' })),
+      state('expanded', style({ height: '*' })),
+      transition(
+        'expanded <=> collapsed',
+        animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')
+      ),
+    ]),
+  ],
 })
 export class ShowAllCustomerComponent implements OnInit {
-  displayedColumns = [
+  listOfBankAcc!: BankAccount[];
+  listOfOffers?: Offer[];
+  // customer: Customer = new Customer();
+
+  expandedColumns = [
+    'Name',
+    'Annual Fee',
+    'Loan Amount',
+    'Interest Free Withdrawal',
+    'Interest Rate',
+    'Pre-Closure Charges'
+  ]
+  // dataSource = this.listOfBankAcc;
+  columnsToDisplay = [
     '#',
     'email',
     'firstName',
@@ -25,10 +56,8 @@ export class ShowAllCustomerComponent implements OnInit {
     'accType',
     'dateCreated',
   ];
-  listOfBankAcc?: BankAccount[];
-  customer: Customer = new Customer();
-  // dataSource = this.listOfBankAcc;
-  counter: number = 1;
+  columnsToDisplayWithExpand = [...this.columnsToDisplay, 'expand'];
+  expandedElement?: BankAccount | null;
 
   constructor(
     private bankAccService: BankAccountService,
@@ -84,6 +113,11 @@ export class ShowAllCustomerComponent implements OnInit {
   refresh() {
     this.listOfBankAcc = [];
     this.getBankAccounts();
+  }
+
+  expandedHelper(element: BankAccount) {
+    this.listOfOffers = element.customer?.offers;
+    
   }
 
   // loadingBalls() {

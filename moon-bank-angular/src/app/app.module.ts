@@ -34,7 +34,7 @@ import { CarLoanOfferComponent } from './user-page/pages/car-loan-offer/car-loan
 import { HouseLoanOfferComponent } from './user-page/pages/house-loan-offer/house-loan-offer.component';
 import { UserMainpageComponent } from './user-page/pages/user-mainpage/user-mainpage.component';
 import { UserComponent } from './user-page/user/user.component';
-
+import {MatIconModule} from '@angular/material/icon';
 @NgModule({
   declarations: [
     AppComponent,
@@ -61,6 +61,7 @@ import { UserComponent } from './user-page/user/user.component';
     AllCardsComponent,
     ApplyCreditCardComponent,
     UserMainpageComponent,
+  
   ],
   imports: [
     BrowserModule,
@@ -73,6 +74,7 @@ import { UserComponent } from './user-page/user/user.component';
     BrowserAnimationsModule,
     MatTableModule,
     MatSidenavModule,
+    MatIconModule
   ],
   providers: [CookieService, AuthInterceptorProvider],
   bootstrap: [AppComponent],

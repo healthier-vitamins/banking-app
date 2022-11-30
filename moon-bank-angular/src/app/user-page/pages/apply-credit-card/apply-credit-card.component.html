@@ -17,9 +17,12 @@
         <p class="value">{{ offer.interestRatePercent }}%</p>
       </div>
       <div class="btn-container">
-        <button class="apply-btn" (click)="applyCreditCard()">
-          <!-- [attr.disabled]="appliedLogic" -->
-          <!-- [ngStyle]="isDisabled()" -->
+        <button
+          class="apply-btn"
+          (click)="applyCreditCard()"
+          [attr.disabled]="hasApplied ? true : null"
+          [ngStyle]="isDisabled()"
+        >
           Apply
         </button>
       </div>

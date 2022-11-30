@@ -30,10 +30,9 @@ i:hover {
 }
 
 #body {
-  border: 1px solid #e6e6e6;
+  /* border: 1px solid #e6e6e6; */
   padding-left: 7px;
   padding-right: 7px;
-  border-radius: 10px;
 }
 
 #firstHeader {
@@ -44,9 +43,71 @@ i:hover {
   color: white;
 }
 
-.spinner-grow {
+/* .spinner-grow {
   width: 19px;
   height: 19px;
   margin-left: 3px;
   display: none;
+} */
+
+table {
+  width: 100%;
 }
+
+tr.detail-row {
+  height: 0;
+}
+
+tr.element-row:not(.expanded-row):hover {
+  background: whitesmoke;
+}
+
+tr.element-row:not(.expanded-row):active {
+  background: #efefef;
+}
+
+.element-row td {
+  border-bottom-width: 0;
+}
+
+.element-detail {
+  overflow: hidden;
+  display: flex;
+
+}
+
+.expanded-element {
+  padding: 0.5rem;
+}
+
+.offer-btn {
+  display: flex;
+  border-radius: 0.375rem;
+  border-style: none;
+  color: grey;
+  margin-left: auto;
+}
+
+.expanded-table {
+  width: 100%;
+  
+  margin: 0.5rem;
+}
+
+
+.expanded-header-th {
+  height: max-content;
+  padding: 0.3rem 0.2rem 0.3rem 0.2rem;
+  text-align: center;
+  border: 0.5px solid lightgrey;
+  border-bottom-width: 0;
+  font-weight: 500;
+  background: #e6e6e6;
+}
+
+.expanded-body-td {
+  text-align: center;
+  border: 0.5px solid lightgrey;
+  padding: 0.1rem 0.2rem 0.1rem 0.2rem;
+}
+

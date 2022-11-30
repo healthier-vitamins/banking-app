@@ -27,4 +27,8 @@ export class OfferService {
       headers: this.reqHeader,
     });
   }
+
+  hasCreditCardOffer(bankAccId: number | null | undefined) {
+    return this.http.get(this.API_PATH + `/has-credit-card/${bankAccId}`);
+  }
 }
