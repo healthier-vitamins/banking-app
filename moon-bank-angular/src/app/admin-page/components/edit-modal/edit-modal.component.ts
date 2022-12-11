@@ -43,7 +43,7 @@ export class EditModalComponent implements OnInit {
   }
 
   transformAccBall(accBal: string | null | undefined) {
-    accBal = accBal!.slice(1);
+    accBal = accBal!.slice(3);
     accBal = accBal!.replaceAll(',', '');
     if (accBal) {
       return accBal;
